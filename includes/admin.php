@@ -37,10 +37,12 @@ function buddyforms_private_frontend_settings_page_tab($tab){
 								$post_types = buddyforms_get_post_types();
 								unset( $post_types['bf_submissions'] );
 
-								foreach( $post_types as $key => $post_type ){
-									$value = isset( $private_post_types[$key] ) ? 'checked="checked"' : '';
-									?><input <?php echo $value ?> type="checkbox" value="<?php echo $key ?>" name="buddyforms_private_frontend_settings[post_types][<?php echo $key ?>]"> <?php echo $post_type ?><?php
-								}
+								echo '<ul>';
+                                    foreach( $post_types as $key => $post_type ){
+                                        $value = isset( $private_post_types[$key] ) ? 'checked="checked"' : '';
+                                        ?><li><input <?php echo $value ?> type="checkbox" value="<?php echo $key ?>" name="buddyforms_private_frontend_settings[post_types][<?php echo $key ?>]"> <?php echo $post_type ?></li><?php
+                                    }
+								echo '<ul>';
 								?>
                                 <p>Select the post types you like to make private and only accessible for the author.</p>
 							</td>
